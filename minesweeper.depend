@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1615215242 source:c:\users\admin\projects\minesweeper\main.cpp
+	"Variables.h"
+
+1615127324 source:c:\users\admin\projects\minesweeper\button.cpp
+	"Variables.h"
+
+1615213523 c:\users\admin\projects\minesweeper\variables.h
+	<windows.h>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	<sstream>
+	<cstdlib>
+	<fstream>
+	"Texture.h"
+	"Constant.h"
+	"Button.h"
+	<iostream>
+	<ctime>
+
+1614779047 c:\users\admin\projects\minesweeper\texture.h
+	"Constant.h"
+
+1614788574 c:\users\admin\projects\minesweeper\constant.h
+
+1614871033 c:\users\admin\projects\minesweeper\button.h
+	"Constant.h"
+
+1614781405 source:c:\users\admin\projects\minesweeper\texture.cpp
+	"Variables.h"
+
+1615213523 source:c:\users\admin\projects\minesweeper\variables.cpp
+	"Variables.h"
+
