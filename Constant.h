@@ -13,10 +13,10 @@ const int TILE_SIZE = 32;
 
 const int BUTTON_SPRITE_TOTAL = 12;
 
-const int NUMBER_OF_ROWS = 9;
-const int NUMBER_OF_COLUMNS = 9;
+const int NUMBER_OF_ROWS = 15;
+const int NUMBER_OF_COLUMNS = 15;
 
-const int NUMBER_OF_MINES = 10;
+const int NUMBER_OF_MINES = 25;
 
 const int DISTANCE_BETWEEN = (SCREEN_WIDTH - NUMBER_OF_ROWS * TILE_SIZE) / 2;
 

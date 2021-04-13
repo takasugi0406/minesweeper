@@ -2,11 +2,9 @@
 #include "Variables.h"
 
 
- using namespace std;
+using namespace std;
 
 
-int game_map[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
-int player_map[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
 LButton gButtons[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
@@ -95,11 +93,11 @@ int main(int argc, char *argv[])
                 }
                 if(isWinning)
                 {
-                    gWinnerTexture.render(0, 0);
+                    gWinnerTexture.render(50, 10);
                 }
                 if(gameOver)
                 {
-                    gGameOverTexture.render(0, 0);
+                    gGameOverTexture.render(50, 10);
                 }
                 SDL_RenderPresent( gRenderer );
             }
@@ -271,7 +269,7 @@ void setMapWithMine()
         }
     }
 }
-int countMineInEight(int x, int y)
+int countMinesInEightCells(int x, int y)
 {
     int count_ = 0;
     for(int i = -1; i < 2; i++)
@@ -299,7 +297,7 @@ void setMapWithNumber()
         {
             if(game_map[i][j] == 0)
             {
-                game_map[i][j] = countMineInEight(i, j);
+                game_map[i][j] = countMinesInEightCells(i, j);
             }
         }
     }
@@ -334,6 +332,7 @@ void playAgain(bool &quit)
             gameOver = false;
             isWinning = false;
             quit = false;
+            countMineLeft = 10;
         }
         else if(e.key.keysym.sym == SDLK_ESCAPE) quit = true;
     }

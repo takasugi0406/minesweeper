@@ -4,7 +4,6 @@
 
 #include "Constant.h"
 
-void set_player_map(int i, int j);
 void reveal(int x, int y);
 
 class LButton

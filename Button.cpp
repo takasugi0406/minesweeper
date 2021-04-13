@@ -55,26 +55,40 @@ void LButton::handleEvent(SDL_Event* e)
             {
 
                 case SDL_BUTTON_LEFT:
-                if (player_map[i][j] == 11)
                 {
-                    countMineLeft ++;
-                    player_map[i][j] = 10;
-                }
+                    reveal(i, j);
+                    if (game_map[i][j] == 9)
+                    {
+                        for(int i = 0; i < NUMBER_OF_ROWS; i++)
+                        {
+                            for(int j = 0; j < NUMBER_OF_COLUMNS; j++)
+                            {
 
-                if(game_map[i][j] == 0)
-                {
-                    player_map[i][j] = 10;
+                                if(game_map[i][j] == 9)
+                                {
+                                    player_map[i][j] = 9;
+                                }
+                            }
+                        }
+                        gameOver = true;
+                    }
+                    break;
                 }
-                else{player_map[i][j] = game_map[i][j];}
-                set_player_map(i, j);
-                if(player_map[i][j] == 9) gameOver = true;
-                break;
 
                 case SDL_BUTTON_RIGHT:
-                if(player_map[i][j] == 10 && countMineLeft > 0)
+                if (player_map[i][j] >= 10)
                 {
-                    player_map[i][j] = 11;
-                    countMineLeft --;
+                    if (player_map[i][j] == 10)
+                    {
+                        if (countMineLeft == 0) break;
+                        player_map[i][j] = 11;
+                        countMineLeft--;
+                    }
+                    else
+                    {
+                        player_map[i][j] = 10;
+                        countMineLeft++;
+                    }
                 }
                 break;
 
@@ -89,56 +103,28 @@ void LButton::render(int i, int j)
     gButtonSpriteSheetTexture.render( mPosition.x, mPosition.y, &gSpriteClips[ player_map[i][j] ] );
 }
 
-void set_player_map(int i, int j)
-{
-    if(player_map[i][j] == 9)
-    {
-        for(int a = 0; a < NUMBER_OF_ROWS; ++a)
-        {
-            for(int b = 0; b < NUMBER_OF_COLUMNS; ++b)
-            {
-                if(game_map[a][b] == 9)
-                {
-                    player_map[a][b] = 9;
-                }
-            }
-        }
-    }
-    else if(player_map[i][j] == 10)
-    {
-        reveal(i, j);
-        player_map[i][j] = 0;
-    }
-    else if (player_map[i][j] == 11)
-    {
-    }
-    else
-    {
-        player_map[i][j] = game_map[i][j];
-    }
-}
-
 
 void reveal(int x, int y)
 {
-    for(int i = -1; i < 2; i++)
+    if (player_map[x][y] == 10 || player_map[x][y] == 11)
     {
-        for(int j = -1; j < 2; j++)
+        if (player_map[x][y] == 11)
         {
-            if(x + i >= 0 && y +j >= 0 && x+i < NUMBER_OF_ROWS && y+j < NUMBER_OF_COLUMNS && (i!=0 || j!=0))
+            countMineLeft++;
+        }
+        player_map[x][y] = game_map[x][y];
+        if(player_map[x][y] == 0)
+        {
+        for(int i = -1; i < 2; i++)
+        {
+            for(int j = -1; j < 2; j++)
             {
-                if(game_map[x+i][y+j] == 0 && player_map[x+i][y+j] != 0)
+                if(x+i >= 0 && y+j >= 0 && x+i < NUMBER_OF_ROWS && y+j < NUMBER_OF_COLUMNS && (i!=0 || j!=0))
                 {
-                    if(player_map[x+i][y+j] == 11) countMineLeft++;
-                    player_map[x+i][y+j] = 0;
                     reveal(x+i, y+j);
                 }
-                if(game_map[x+i][y+j] > 0 && game_map[x+i][y+j] < 9)
-                {
-                    if(player_map[x+i][y+j] == 11) countMineLeft++;
-                    player_map[x+i][y+j] = game_map[x+i][y+j];
-                }
             }
+        }
         }
     }
 }

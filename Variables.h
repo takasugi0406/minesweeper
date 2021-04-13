@@ -32,7 +32,6 @@ extern LTexture gWinnerTexture;
 extern LTexture gGameOverTexture;
 
 extern int countMineLeft;
-extern int countTileLeft;
 extern bool gameOver;
 extern bool isWinning;
 

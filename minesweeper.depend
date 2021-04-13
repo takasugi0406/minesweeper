@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1615215242 source:c:\users\admin\projects\minesweeper\main.cpp
+1618302135 source:c:\users\admin\projects\minesweeper\main.cpp
 	"Variables.h"
 
-1615127324 source:c:\users\admin\projects\minesweeper\button.cpp
+1618305224 source:c:\users\admin\projects\minesweeper\button.cpp
 	"Variables.h"
 
-1615213523 c:\users\admin\projects\minesweeper\variables.h
+1618305224 c:\users\admin\projects\minesweeper\variables.h
 	<windows.h>
 	<string>
 	<SDL.h>
@@ -24,14 +24,14 @@
 1614779047 c:\users\admin\projects\minesweeper\texture.h
 	"Constant.h"
 
-1614788574 c:\users\admin\projects\minesweeper\constant.h
+1618305692 c:\users\admin\projects\minesweeper\constant.h
 
-1614871033 c:\users\admin\projects\minesweeper\button.h
+1616421202 c:\users\admin\projects\minesweeper\button.h
 	"Constant.h"
 
 1614781405 source:c:\users\admin\projects\minesweeper\texture.cpp
 	"Variables.h"
 
-1615213523 source:c:\users\admin\projects\minesweeper\variables.cpp
+1618305377 source:c:\users\admin\projects\minesweeper\variables.cpp
 	"Variables.h"
 
