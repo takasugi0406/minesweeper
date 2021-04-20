@@ -332,7 +332,7 @@ void playAgain(bool &quit)
             gameOver = false;
             isWinning = false;
             quit = false;
-            countMineLeft = 10;
+            countMineLeft = NUMBER_OF_MINES;
         }
         else if(e.key.keysym.sym == SDLK_ESCAPE) quit = true;
     }

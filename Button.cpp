@@ -16,7 +16,7 @@ void LButton::setPosition( int x, int y )
 void LButton::handleEvent(SDL_Event* e)
 {
     //If mouse event happened
-    if( e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP )
+    if( e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN )
     {
         //Get mouse position
         int x, y;
